@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .box{
+            width: 500px;
+            height: 300px;
+            line-height: 300px;
+            text-align: center;
+            background: firebrick;
+            margin: 100px auto;
+            cursor:pointer;
+            color: black;
+            font-size: 50px;
+        }
+    </style>
+</head>
+<body>
+<div class="box"></div>
+</body>
+</html>
+<script>
+    var oBox=document.getElementsByTagName("div")[0];/*注意需要加下标*/
+    var timer=null;
+    var i=0;
+   oBox.onclick=function () {
+      timer =setInterval(function () {
+          if(i>10){
+                clearInterval(timer);
+            } else {
+                i++
+          }
+          oBox.innerHTML=i;
+        },1000)
+   }
+</script>

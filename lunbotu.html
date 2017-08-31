@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body,ul,li,h3,span,i{margin: 0;padding: 0;}
+        ul{list-style: none;}
+        i{font-style: normal}
+        .clearfix::after{
+            width: 0;
+            height: 0;
+            content: "";
+            display: block;
+            clear: both;
+        }
+        .clearfix{zoom: 1;}
+        .box{
+            width: 676px;
+            height: 354px;
+            margin: 100px auto;
+            border: 2px solid peru;
+        }
+        .banner{
+            width: 676px;
+            height: 354px;
+        }
+        .w400{
+            width: 560px;
+            height: 354px;
+            float: left;
+            position: relative;
+            overflow: hidden;
+        }
+        .w400 img{
+            position: absolute;
+        }
+        .banner ul{
+            width: 116px;
+            height: 354px;
+            float: left;
+            background: black;
+        }
+        .banner ul li{
+            width: 116px;
+            height: 70px;
+            border-top: 1px solid #524a52;
+            text-align: center;
+            position: relative;
+        }
+        .banner ul h3{
+            margin-top:10px ;
+            color: white;
+            font-size: 16px;
+        }
+        .banner ul span{
+            color: #adb5b5;
+            font-size: 14px;
+        }
+        .banner ul li i{
+            width: 0;
+            height: 0;
+            display: block;
+            border: 20px solid;
+            border-color: rgba(225,225,255,0) pink rgba(225,225,225,0) rgba(225,225,225,0) ;
+            position: absolute;
+            left: -40px;
+            top:10px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <div class="clearfix banner">
+        <div class="w400" id="pic">
+            <img src="../../images/a.png"width="560px" height="355px" alt="">
+            <img src="../../images/b.png"width="560px" height="355px" alt="">
+            <img src="../../images/c.jpg"width="560px" height="355px" alt="">
+            <img src="../../images/d.png"width="560px" height="355px" alt="">
+            <img src="../../images/e.jpg"width="560px" height="355px" alt="">
+        </div>
+        <ul class="bannerul" id="bannerul">
+            <li>
+                <h3>时髦新品</h3>
+                <span>天天见</span>
+                <i></i>
+            </li>
+            <li>
+                <h3>简约之美</h3>
+                <span>约克郡优雅</span>
+                <i></i>
+            </li>
+            <li>
+                <h3>HOLLOW风潮</h3>
+                <span>性感一夏</span>
+                <i></i>
+            </li>
+            <li>
+                <h3>"公主病"万岁</h3>
+                <span>免费游迪尼斯</span>
+                <i></i>
+            </li>
+            <li>
+                <h3>纯棉立体</h3>
+                <span>小清新T恤</span>
+                <i></i>
+            </li>
+        </ul>
+    </div>
+</div>
+</body>
+</html>
+<script>
+    var aLi=document.getElementById("bannerul").getElementsByTagName("li");
+    var oImg=document.getElementById("pic").getElementsByTagName("img");
+    var oI=document.getElementById("bannerul").getElementsByTagName("i")
+    for(var i=0;i<aLi.length;i++){
+        (function (i) {
+            aLi[i].onmouseover=function () {
+                for(var g=0;g<aLi.length;g++){
+                    oImg[g].style.display="none";
+                    oI[g].style.display="none";
+                    aLi[i].style.marginLeft="";
+                    aLi[i].style.paddingLeft="";
+                    aLi[i].style.border="";
+                }
+                oImg[i].style.display="block";
+                aLi[i].style.background="pink";
+                aLi[i].style.marginLeft="-10px";
+                aLi[i].style.paddingLeft="10px";
+                aLi[i].style.border="1px solid pink";
+                oI[i].style.display="block";
+            }
+            aLi[i].onmouseout=function () {
+                for(var g=0;g<aLi.length;g++){
+                    oImg[g].style.display="none";
+                }
+              oImg[i].style.display="block";
+                aLi[i].style.background="";
+                oI[i].style.display="none";
+                aLi[i].style.marginLeft="";
+                aLi[i].style.paddingLeft="";
+                aLi[i].style.border="";
+            }
+        })(i)
+    }
+</script>

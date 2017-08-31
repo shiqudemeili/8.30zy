@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="button" value="点击发送消息" id="btn">
+</body>
+</html>
+<script>
+    var oBtn=document.getElementById("btn");
+    var i=5;
+    var timer=null;
+   /* oBtn.onclick=function () {
+            if(i==0){
+                i=5;
+            }else {
+                i--;
+                oBtn.value=i+"秒后自动发送";
+            }
+    }*/
+    oBtn.onclick=function () {
+        oBtn.disabled=true;
+       timer= setInterval(function () {
+            i--;
+            oBtn.value=i+"秒后自动发送";
+           if(i==0){
+               clearInterval(timer)
+               oBtn.value="点击重新发送"
+               oBtn.disabled=false;
+               i=5
+           }
+        },1000)
+    }
+</script>

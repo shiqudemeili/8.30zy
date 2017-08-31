@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .box{
+            width: 500px;
+            height: 300px;
+            background: red;
+            margin: 100px auto;
+        }
+    </style>
+</head>
+<body>
+<div class="box"></div>
+</body>
+</html>
+<script>
+    var oBox=document.getElementsByTagName("div")[0];
+    var timer=null;
+     oBox.onmouseover=function () {
+       timer = setTimeout(function () {
+             oBox.style.background="yellow";
+         },2000)
+     }
+    oBox.onmouseout=function () {
+       clearTimeout(timer)
+    }
+</script>
